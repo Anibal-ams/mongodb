@@ -1,0 +1,14 @@
+use musicavallenata;
+db.canciones.insertOne({
+    _id:1,
+    titulo: "la gota fria",
+    artista: "carlos vives",
+    autor:"emiliano zuleta",
+    album: "clasicos de la providencia",
+    anio:1993,
+    genero:"vallenato",
+    duracion: "4:25",
+    letra: "me la lleva ella me la llevo yo....",
+    reproducciones: 150000,
+});
+db.canciones.find();
