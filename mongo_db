@@ -9,6 +9,58 @@ db.canciones.insertOne({
     genero:"vallenato",
     duracion: "4:25",
     letra: "me la lleva ella me la llevo yo....",
-    reproducciones: 150000,
+    reproducciones: 1500000,
 });
+//db.canciones.find();
+db.canciones.insertMany([
+    {
+    _id:2,
+    titulo: "obsesion",
+    artista: "jorge celedon",
+    autor:"ivan calderon",
+    album: "sencillo",
+    anio:2002,
+    genero:"vallenato",
+    duracion: "3:40",
+    letra: "ya no comprendo por que no me hablas",
+    reproducciones: 150000,
+    },
+    {
+    _id:3,
+    titulo: "obsesion",
+    artista: "jorge celedon",
+    autor:"ivan calderon",
+    album: "sencillo",
+    anio:2002,
+    genero:"vallenato",
+    duracion: "3:40",
+    letra: "ya no comprendo por que no me hablas",
+    reproducciones: 180000,
+    }
+]);
+db.canciones.find({anio:1993})
+
+db.canciones.find({reproducciones:{$gt:18001}})
+db.canciones.find({genero: "vallenato",duracion:{$gte:"4:00"}})
+db.canciones.updateOne(
+    {_id:3},
+    {$set:{reproducciones:15800000}}
+    
+)
+db.canciones.find();
+
+// varios documentos
+db .canciones.updateMany(
+    {genero:"vallenato"},
+    {$inc:{reproducciones:1000000}}
+    
+)
+db.canciones.find();
+
+//elimenar un documento especifico
+//db.canciones.deleteOne({_id:1})
+//db.canciones.find();
+
+//elimenar multiples documentos
+db.canciones.deleteMany({artista:"carlos vives"})
 db.canciones.find();
